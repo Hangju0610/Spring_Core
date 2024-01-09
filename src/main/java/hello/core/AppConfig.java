@@ -1,6 +1,8 @@
 package hello.core;
 
+import hello.core.discount.DiscountPolicy;
 import hello.core.discount.FixDiscountPolicy;
+import hello.core.member.MemberRepository;
 import hello.core.member.MemberService;
 import hello.core.member.MemberServiceImpl;
 import hello.core.member.MemoryMemberRepository;
@@ -11,14 +13,24 @@ public class AppConfig {
     // 생성자 주입
     // history 검색 command E
     public MemberService memberService() {
-        return new MemberServiceImpl(new MemoryMemberRepository());
+        return new MemberServiceImpl(MemberRepository());
+    }
+
+    // 지금은 메모리 멤버 리포지토리를 쓸 꺼야.
+    private MemberRepository MemberRepository() {
+        return new MemoryMemberRepository();
     }
 
     public OrderService orderService() {
         return new OrderServiceImpl(
-                new MemoryMemberRepository(),
-                new FixDiscountPolicy());
+                MemberRepository(),
+                discountPolicy());
+    }
+
+    public DiscountPolicy discountPolicy() {
+        return new FixDiscountPolicy();
     }
 }
 
 
+햣
