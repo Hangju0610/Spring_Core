@@ -18,19 +18,22 @@ public class AppConfig {
     // history 검색 command E
     @Bean
     public MemberService memberService() {
-        return new MemberServiceImpl(MemberRepository());
+        System.out.println("call AppConfig.memberService");
+        return new MemberServiceImpl(memberRepository());
     }
 
     // 지금은 메모리 멤버 리포지토리를 쓸 꺼야.
     @Bean
-    public MemberRepository MemberRepository() {
+    public MemberRepository memberRepository() {
+        System.out.println("call AppConfig.memberRepository");
         return new MemoryMemberRepository();
     }
 
     @Bean
     public OrderService orderService() {
+        System.out.println("call AppConfig.orderService");
         return new OrderServiceImpl(
-                MemberRepository(),
+                memberRepository(),
                 discountPolicy());
     }
 
