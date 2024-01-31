@@ -25,6 +25,15 @@ public class OrderServiceImpl implements OrderService{
 //    @Autowired
     private final DiscountPolicy discountPolicy;
 
+//    @Autowired
+//    public void setMemberRepository(MemberRepository memberRepository) {
+//        this.memberRepository = memberRepository;
+//    }
+//    @Autowired
+//    public void setDiscountPolicy(DiscountPolicy discountPolicy) {
+//        this.discountPolicy = discountPolicy;
+//    }
+
     // 선택, 변경 가능성이 있는 의존 관계에 사용.
 //    @Autowired
 //    public void setMemberRepository(MemberRepository memberRepository) {
@@ -43,6 +52,7 @@ public class OrderServiceImpl implements OrderService{
 //    public void setDiscountPolicy(DiscountPolicy discountPolicy) {
 //        this.discountPolicy = discountPolicy;
 //    }
+
 
     @Autowired
     public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {

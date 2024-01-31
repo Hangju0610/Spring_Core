@@ -28,14 +28,14 @@ public class OrderServiceTest {
         Assertions.assertThat(order.getDiscountPrice()).isEqualTo(1000);
     }
 
-    @Test
-    void fieldInjectionTest() {
-        OrderServiceImpl orderService = new OrderServiceImpl();
-
-        // 필드로 인젝션 하는 경우 setter 를 만들어야 한다.
-        orderService.setMemberRepository(new MemoryMemberRepository());
-        orderService.setDiscountPolicy(new FixDiscountPolicy());
-
-        orderService.createOrder(1L, "itemA", 10000);
-    }
+//    @Test
+//    void fieldInjectionTest() {
+//        OrderServiceImpl orderService = new OrderServiceImpl();
+//
+//        // 필드로 인젝션 하는 경우 setter 를 만들어야 한다.
+////        orderService.setMemberRepository(new MemoryMemberRepository());
+////        orderService.setDiscountPolicy(new FixDiscountPolicy());
+//
+//        orderService.createOrder(1L, "itemA", 10000);
+//    }
 }
