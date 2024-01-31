@@ -59,7 +59,7 @@ public class OrderServiceImpl implements OrderService{
 
     @Autowired
 //     lombok 을 붙이면 생성자를 만들어준다.
-    public OrderServiceImpl(MemberRepository memberRepository, @Qualifier("mainDiscountPolicy") DiscountPolicy DiscountPolicy) {
+    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy DiscountPolicy) {
         this.memberRepository = memberRepository;
         this.discountPolicy = DiscountPolicy;
     }
